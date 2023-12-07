@@ -1,14 +1,14 @@
 package ru.job4j.tracker.checkstyle;
 
 public class Broken {
-    public static final String newValue = "";
+    public static final String NEWVALUE = "";
     private int sizeOfEmpty = 10;
     String name;
     public String surname;
 
     void echo() { }
 
-    void media (Object obj) {
+    void media(Object obj) {
         if (obj != null) {
             System.out.println(obj);
         }
