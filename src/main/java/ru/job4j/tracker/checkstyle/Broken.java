@@ -1,16 +1,20 @@
-package ru.job4j.tracker.Checkstyle;
+package ru.job4j.tracker.checkstyle;
 
-public class broken {
+public class Broken {
     public static final String newValue = "";
     private int sizeOfEmpty = 10;
-    String Name;
-    public String Surname;
+    String name;
+    public String surname;
+
     void echo() { }
-    void Media (Object obj) {
+
+    void media (Object obj) {
         if (obj != null) {
             System.out.println(obj);
         }
     }
+
     void method(int a) { }
-    void Broken() { }
+
+    void broking() { }
 }
