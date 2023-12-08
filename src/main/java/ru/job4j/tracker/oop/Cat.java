@@ -15,6 +15,7 @@ public class Cat {
     public void giveNick(String nick) {
         this.name = nick;
     }
+
     public String sound() {
         return "may-may";
     }
