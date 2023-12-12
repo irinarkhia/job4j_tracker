@@ -2,17 +2,10 @@ package ru.job4j.tracker.oop;
 
 public class Jukebox {
     public void music(int position) {
-        String first = "Пусть бегут неуклюже";
-        String second = "Спокойной ночи";
-        String third = "Песня не найдена";
         switch (position) {
-            case 1:
-                System.out.println(first);
-                break;
-            case 2:
-                System.out.println(second);
-            default:
-                System.out.println(third);
+            case 1  -> System.out.println("Пусть бегут неуклюже");
+            case 2  -> System.out.println("Спокойной ночи");
+            default -> System.out.println("Песня не найдена");
         }
     }
 
