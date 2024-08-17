@@ -10,7 +10,7 @@ public class Broken {
 
     public String surname;
 
-    Broken () { }
+    Broken() { }
 
     void echo() { }
 
