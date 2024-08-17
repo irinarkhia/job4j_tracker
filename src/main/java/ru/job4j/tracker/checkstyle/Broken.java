@@ -1,10 +1,16 @@
 package ru.job4j.tracker.checkstyle;
 
 public class Broken {
+
     public static final String NEWVALUE = "";
+
     private int sizeOfEmpty = 10;
+
     String name;
+
     public String surname;
+
+    Broken () { }
 
     void echo() { }
 
@@ -16,5 +22,4 @@ public class Broken {
 
     void method(int a) { }
 
-    void broking() { }
 }
