@@ -25,7 +25,6 @@ public class Tracker {
         return o;
     }
 
-
     public Item[] findAll() {
         Item[] itemsWithoutNull = new Item[items.length];
         int mySize = 0;
@@ -53,5 +52,4 @@ public class Tracker {
         itemsWithTrueName = Arrays.copyOf(itemsWithTrueName, newSize);
         return itemsWithTrueName;
     }
-
 }
