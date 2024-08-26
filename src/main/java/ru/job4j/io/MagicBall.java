@@ -8,14 +8,15 @@ public class MagicBall {
         Scanner input = new Scanner(System.in);
         String que = input.nextLine();
         int answer = new Random().nextInt(3);
-        String ans;
-        if (answer == 0) {
-            ans = "Нет";
-        } else if (answer == 1) {
-            ans = "Да";
-        } else {
-            ans = "Может быть";
+        switch (answer) {
+            case 0:
+                System.out.println("Нет");
+                break;
+            case 1:
+                System.out.println("Да");
+                break;
+            default:
+                System.out.println("Может быть");
         }
-        System.out.println(ans);
     }
 }
