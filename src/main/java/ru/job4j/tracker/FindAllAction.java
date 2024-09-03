@@ -16,6 +16,7 @@ public class FindAllAction implements UserAction {
             }
         } else {
             System.out.println("Хранилище еще не содержит заявок");
-        }return true;
+        }
+        return true;
     }
 }
