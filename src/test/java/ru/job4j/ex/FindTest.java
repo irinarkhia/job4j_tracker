@@ -62,4 +62,13 @@ class FindTest {
         String expected = "one";
         assertThat(result).isEqualTo(expected);
     }
+
+    @Test
+    void whenIndexIs1ThenItIsCorrect() {
+        String[] data = {"one", "two", "three"};
+        int index = 1;
+        String result = Find.get(data, index);
+        String expected = "two";
+        assertThat(result).isEqualTo(expected);
+    }
 }
