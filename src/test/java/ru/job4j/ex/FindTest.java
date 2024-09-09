@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 class FindTest {
+
     @Test
     void whenIndexIsNegative() {
         String[] data = {"one", "two", "three"};
