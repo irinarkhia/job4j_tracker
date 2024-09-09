@@ -19,7 +19,6 @@ class ValidateInputTest {
         assertThat(selected).isEqualTo(1);
     }
 
-    //- ввод отрицательного числа - тут все просто, поместите отрицательное число в виде строки в массив, для валидатора такое значение валидное и метод вернет это отрицательное число.
     @Test
     void whenValidInput() {
         Output output = new StubOutput();
