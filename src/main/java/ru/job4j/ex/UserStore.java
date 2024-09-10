@@ -2,22 +2,23 @@ package ru.job4j.ex;
 
 public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
+        User founded = null;
         for (User user : users) {
             if (user.getUsername().equals(login)) {
-                return user;
-            } else {
-                throw new UserNotFoundException("Элемент не найден");
+                founded = user;
             }
         }
-        return null;
+        if (founded == null) {
+            throw new UserNotFoundException("Элемент не найден");
+        }
+        return founded;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (!user.isValid() && user.getUsername().length() < 3) {
+        if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("Элемент является недействительным");
-        } else {
-            return false;
         }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -27,8 +28,11 @@ public class UserStore {
         try {
             User user = findUser(users, "Petr Arsentev");
             validate(user);
-        } catch (Exception e) {
+        } catch (UserInvalidException e) {
             e.printStackTrace();
+        } catch (UserNotFoundException em) {
+            em.printStackTrace();
+        } catch (Exception es) {
         }
     }
 }
