@@ -1,6 +1,7 @@
 package ru.job4j.early;
 
 public class PasswordValidator {
+
     private static final String[] FORBIDDEN = {"qwerty", "12345", "password", "admin", "user"};
 
     public static String validate(String password) {
@@ -24,7 +25,6 @@ public class PasswordValidator {
         for (char symbol : password.toCharArray()) {
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
-                continue;
             }
         }
         if (!hasUpCase) {
@@ -35,7 +35,6 @@ public class PasswordValidator {
         for (char symbol : password.toCharArray()) {
             if (Character.isLowerCase(symbol)) {
                 hasLowCase = true;
-                continue;
             }
         }
         if (!hasLowCase) {
@@ -46,7 +45,6 @@ public class PasswordValidator {
         for (char symbol : password.toCharArray()) {
             if (Character.isDigit(symbol)) {
                 hasDigit = true;
-                continue;
             }
         }
         if (!hasDigit) {
