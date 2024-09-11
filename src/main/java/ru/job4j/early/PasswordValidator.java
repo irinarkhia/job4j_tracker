@@ -1,0 +1,69 @@
+package ru.job4j.early;
+
+public class PasswordValidator {
+    private static final String[] FORBIDDEN = {"qwerty", "12345", "password", "admin", "user"};
+
+    public static String validate(String password) {
+        if (password == null) {
+            throw new IllegalArgumentException(
+                    "Password can't be null"
+            );
+        }
+        if (password.length() > 32 || password.length() < 8) {
+            throw new IllegalArgumentException("Password should be length [8, 32]");
+        }
+        for (String str : FORBIDDEN) {
+            if (password.toLowerCase().contains(str.toLowerCase())) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+            }
+        }
+        boolean hasUpCase = false;
+        boolean hasLowCase = false;
+        boolean hasDigit = false;
+        boolean hasSpecial = false;
+        for (char symbol : password.toCharArray()) {
+            if (Character.isUpperCase(symbol)) {
+                hasUpCase = true;
+                continue;
+            }
+        }
+        if (!hasUpCase) {
+            throw new IllegalArgumentException(
+                    "Password should contain at least one uppercase letter"
+            );
+        }
+        for (char symbol : password.toCharArray()) {
+            if (Character.isLowerCase(symbol)) {
+                hasLowCase = true;
+                continue;
+            }
+        }
+        if (!hasLowCase) {
+            throw new IllegalArgumentException(
+                    "Password should contain at least one lowercase letter"
+            );
+        }
+        for (char symbol : password.toCharArray()) {
+            if (Character.isDigit(symbol)) {
+                hasDigit = true;
+                continue;
+            }
+        }
+        if (!hasDigit) {
+            throw new IllegalArgumentException(
+                    "Password should contain at least one figure"
+            );
+        }
+        for (char symbol : password.toCharArray()) {
+            if (!Character.isLetterOrDigit(symbol)) {
+                hasSpecial = true;
+            }
+        }
+        if (!hasSpecial) {
+            throw new IllegalArgumentException(
+                    "Password should contain at least one special symbol"
+            );
+        }
+        return password;
+    }
+}
