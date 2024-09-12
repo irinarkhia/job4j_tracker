@@ -13,11 +13,6 @@ public class PasswordValidator {
         if (password.length() > 32 || password.length() < 8) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
-        for (String str : FORBIDDEN) {
-            if (password.toLowerCase().contains(str.toLowerCase())) {
-                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
-            }
-        }
         boolean hasUpCase = false;
         boolean hasLowCase = false;
         boolean hasDigit = false;
@@ -26,41 +21,40 @@ public class PasswordValidator {
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
             }
+            if (Character.isLowerCase(symbol)) {
+                hasLowCase = true;
+            }
+            if (Character.isDigit(symbol)) {
+                hasDigit = true;
+            }
+            if (!Character.isLetterOrDigit(symbol)) {
+                hasSpecial = true;
+            }
         }
         if (!hasUpCase) {
             throw new IllegalArgumentException(
                     "Password should contain at least one uppercase letter"
             );
         }
-        for (char symbol : password.toCharArray()) {
-            if (Character.isLowerCase(symbol)) {
-                hasLowCase = true;
-            }
-        }
         if (!hasLowCase) {
             throw new IllegalArgumentException(
                     "Password should contain at least one lowercase letter"
             );
-        }
-        for (char symbol : password.toCharArray()) {
-            if (Character.isDigit(symbol)) {
-                hasDigit = true;
-            }
         }
         if (!hasDigit) {
             throw new IllegalArgumentException(
                     "Password should contain at least one figure"
             );
         }
-        for (char symbol : password.toCharArray()) {
-            if (!Character.isLetterOrDigit(symbol)) {
-                hasSpecial = true;
-            }
-        }
         if (!hasSpecial) {
             throw new IllegalArgumentException(
                     "Password should contain at least one special symbol"
             );
+        }
+        for (String str : FORBIDDEN) {
+            if (password.toLowerCase().contains(str.toLowerCase())) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+            }
         }
         return password;
     }
