@@ -1,34 +1,29 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-
 public class SingleTracker {
 
-    private Tracker tracker = new Tracker();
+    private static Tracker tracker = new Tracker();
+    private SingleTracker() {}
 
-    public Item add(Item item) {
+    public static Item add(Item item) {
         return tracker.add(item);
     }
 
-    public Item[] findAll() {
+    public static Item[] findAll() {
         return tracker.findAll();
     }
 
-    public Item[] findByName(String key) {
+    public static Item[] findByName(String key) {
         return tracker.findByName(key);
     }
 
-    public int indexOf(int id) {
-        return tracker.indexOf(id);
+    public static Item findById(int id) {
+        return tracker.findById(id);
     }
 
-    public Item findById(int id) {
-        return tracker.findById(indexOf(id));
-    }
-
-    public boolean replace(int id, Item item) {
+    public static boolean replace(int id, Item item) {
         return tracker.replace(id, item);
     }
 
-    public void delete(int id) { }
+    public static void delete(int id) { }
 }
