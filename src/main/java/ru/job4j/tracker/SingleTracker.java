@@ -6,10 +6,10 @@ public final class SingleTracker {
 
     private static SingleTracker singleTracker = null;
 
-    private SingleTracker(){}
+    private SingleTracker() { }
 
-    private static SingleTracker getInstance(){
-        if (singleTracker == null){
+    private static SingleTracker getInstance() {
+        if (singleTracker == null) {
             singleTracker = new SingleTracker();
         }
         return singleTracker;
